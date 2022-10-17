@@ -34,9 +34,14 @@ namespace VotingApp
             personList.Add(person);
             Console.WriteLine("Kayıt oluşturuldu.");
         }
-        public void AddVoiting(string key, int value)
+        public void AddVoiting(string key)
         {
-            voitingResult.Add(key, value);
+            if (voitingResult.ContainsKey(key) == false)
+            {
+                voitingResult.Add(key, 1);
+                return;
+            }
+            voitingResult[key]++;
         }
         public Dictionary<string, int> GetVoitingResult()
         {
