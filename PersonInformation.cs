@@ -8,7 +8,9 @@ namespace VotingApp
 
         public Person(string username)
         {
-            this.username = username;
+            this.Username = username;
         }
+
+        public string Username { get => username; set => username = value; }
     }
 }

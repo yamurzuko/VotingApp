@@ -5,7 +5,7 @@ namespace VotingApp
     public class Database
     {
         private List<Person> personList;
-        private Dictionary<string, int> voitingResult = new Dictionary<string, int>();
+        private static Dictionary<string, int> voitingResult = new Dictionary<string, int>();
         
         public Database()
         {
@@ -22,7 +22,7 @@ namespace VotingApp
         {
             foreach (var item in personList)
             {
-                if(Convert.ToString(item) == username)
+                if(item.Username == username)
                 {
                     return true;
                 }
