@@ -29,14 +29,22 @@ namespace VotingApp
                 Console.WriteLine("Komedi İçin ---> (3)");
                 Console.WriteLine("Romantik İçin ---> (4)");
 
-                int choise = Convert.ToInt32(Console.ReadLine());
-                toVoit.Choise(choise);
-
-                Console.WriteLine("Güncel Sonuçlar :");
-                foreach (var item in database.GetVoitingResult())
+                int choise = -1;
+                if (int.TryParse(Console.ReadLine(), out choise))
                 {
-                    Console.WriteLine($"{item.Key} kategorisi {item.Value} oy almıştır.");
+                    toVoit.Choise(choise);
+
+                    Console.WriteLine("Güncel Sonuçlar :");
+                    foreach (var item in database.GetVoitingResult())
+                    {
+                        Console.WriteLine($"{item.Key} kategorisi {item.Value} oy almıştır.");
+                    }
                 }
+                else
+                {
+                    Console.WriteLine("Hatalı Giriş.");
+                }
+                
             }
         }
     }
